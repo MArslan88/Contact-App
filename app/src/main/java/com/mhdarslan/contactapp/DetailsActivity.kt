@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
+import com.mhdarslan.contactapp.Model.UserData
 
 class DetailsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -15,14 +16,14 @@ class DetailsActivity : AppCompatActivity() {
         val cnt_nmbr:TextView = findViewById(R.id.cnt_nmbr)
 
         // get intent data
-        val userProfileImage = intent.getIntExtra("profileImage", R.drawable.image1)
-        val user_name = intent.getStringExtra("name")
-        val user_number = intent.getStringExtra("number")
+        val user = intent.getParcelableExtra<UserData>("user")
 
         // set intent data
-        userProfile.setImageResource(userProfileImage)
-        userName.text = user_name
-        cnt_nmbr.text = user_number
+        if (user != null) {
+            userProfile.setImageResource(user.contactsProfile)
+            userName.text = user.contactName
+            cnt_nmbr.text = user.contactNumber
+        }
 
     }
 }

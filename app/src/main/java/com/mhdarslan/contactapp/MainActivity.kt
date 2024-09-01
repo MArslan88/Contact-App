@@ -48,14 +48,14 @@ class MainActivity : AppCompatActivity() {
         listView.adapter = ContactAdapter(this, userArrayList)
         listView.isClickable = true
         listView.setOnItemClickListener { parent, view, position, id ->
-            val profile = contactProfileImage[position]
-            val name = contactName[position]
-            val number = contactNumber[position]
+            val userData = UserData(
+                contactProfileImage[position],
+                contactName[position],
+                contactNumber[position]
+            )
 
             val intent = Intent(this, DetailsActivity::class.java)
-            intent.putExtra("profileImage", profile)
-            intent.putExtra("name", name)
-            intent.putExtra("number", number)
+            intent.putExtra("user", userData)
             startActivity(intent)
         }
     }
