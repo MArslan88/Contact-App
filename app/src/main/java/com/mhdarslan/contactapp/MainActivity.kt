@@ -16,7 +16,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-//        val listView: ListView = findViewById(R.id.lv_contact)
         val rv_contact: RecyclerView = findViewById(R.id.rv_contact)
         val layoutManager = LinearLayoutManager(this)
         rv_contact.layoutManager = layoutManager
@@ -24,50 +23,6 @@ class MainActivity : AppCompatActivity() {
         val userDataList: List<UserData> = dummyData()
         val adapter = MyAdapter(this, userDataList)
         rv_contact.adapter = adapter
-
-//        val contactProfileImage: IntArray = intArrayOf(
-//            R.drawable.image1,
-//            R.drawable.image2,
-//            R.drawable.image3,
-//            R.drawable.image4
-//        )
-//
-//        val contactName: Array<String> = arrayOf(
-//            "Ayesha",
-//            "Danish",
-//            "Noman",
-//            "Ali"
-//        )
-//        val contactNumber: Array<String> = arrayOf(
-//            "03451234567",
-//            "03001234567",
-//            "03331234567",
-//            "03421234567"
-//        )
-//        userArrayList = ArrayList()
-//
-//        for (position in contactName.indices) {
-//            val contact = UserData(
-//                contactProfileImage[position],
-//                contactName[position],
-//                contactNumber[position]
-//            )
-//            userArrayList.add(contact)
-//        }
-
-//        listView.adapter = ContactAdapter(this, userArrayList)
-//        listView.isClickable = true
-//        listView.setOnItemClickListener { parent, view, position, id ->
-//            val userData = UserData(
-//                contactProfileImage[position],
-//                contactName[position],
-//                contactNumber[position]
-//            )
-//
-//            val intent = Intent(this, DetailsActivity::class.java)
-//            intent.putExtra("user", userData)
-//            startActivity(intent)
-//        }
     }
 
     private fun dummyData(): List<UserData> {
